@@ -7,5 +7,6 @@ const videojuegoController = require('../controllers/videojuego.controller.js');
 
 // rutas
 router.get('/', videojuegoController.get);
+router.get("/:id", videojuegoController.getById) 
 
 module.exports = router
