@@ -8,6 +8,7 @@ const app = express();
 const prism = new PrismaClient();
 //---Archivos de rutas---
 const videojuegoRouter = require("./routes/videojuego.routes.js")
+const ordenRouter = require("./routes/videojuego.routes.js")
 // Acceder a la configuracion del archivo .env
 dotEnv.config();
 // Puerto que escucha por defecto 300 o definido .env
@@ -25,6 +26,7 @@ app.use(
 );
 //---- Definir rutas ----
 app.use("/videojuego/", videojuegoRouter)
+app.use("/orden/", ordenRouter)
 // Servidor
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
