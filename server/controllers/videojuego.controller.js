@@ -15,8 +15,15 @@ module.exports.getById = async (request, response, next) => {
   const id = parseInt(request.params.id);
   const videojuego = await prisma.videojuego.findUnique({
     where: { id: id },
+    include: {
+      generos: {
+        select: {
+            id: true
+        }
+      }
+    },
   });
-  response.json(videojuego)
+  response.json(videojuego);
 };
 //Crear un videojuego
 module.exports.create = async (request, response, next) => {};
